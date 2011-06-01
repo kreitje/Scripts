@@ -1,0 +1,14 @@
+# Grab todays date
+d=$(date +%m_%d_%Y)
+# Dumps a MySQL database into a file. Remember to replace YOUR_USERNAME with your username
+# and YOUR_PASSWORD with your actual password and the same with DATABASE_NAME
+# The $d in the database file name is the date we got above.
+# Put the database in the same folder as the files you are backing up.
+mysqldump -u YOUR_USERNAME --password=YOUR_PASSWORD DATABASE_NAME > /path_to_save_backups/database_$d.sql
+ 
+# Put all the files (including the .sql file we just created) into a bz2 file (zip file basically)
+# Notice the $d in there as well.
+tar -cjf /path_to_save_backups/BACKUP_NAME-$d.tar.bz2 /path_to_save_backups/
+ 
+# Remove the .sql file we just created so we dont have a long list of sql dumps taking up space
+rm -f /path/to/files/to/be/backed/up/database_$d.sql
