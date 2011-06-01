@@ -1,0 +1,12 @@
+ssh -i /Users/<user>/.ssh/<key> <server_username>@<host> -D <local_port>
+
+# <key> is the ssh key used to login to your server. Not all servers will have this setup
+# <server_username> is the username you are trying to login as on the server
+# <host> is the hostname. It can be a domain or an ip address
+# <local_port> is the port you need to set the proxy settings to in your browser
+
+# key login
+# example    ssh -i /Users/jeff/.ssh/id_rsa jeff@jeffsbox.com -D 8080
+
+# user login
+#example   ssh jeff@jeffsbox.com -D 8080
